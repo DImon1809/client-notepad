@@ -1,0 +1,203 @@
+$gap-size: 30px;
+$background-form: rgba(240, 248, 255, 0.6);
+$background-border: rgb(29, 163, 190);
+$background-form-without-alpha: rgb(240, 248, 255);
+
+.background-image {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  @media (max-width: 1300px) {
+    width: 110%;
+  }
+
+  @media (max-width: 1040px) {
+    width: 120%;
+  }
+
+  @media (max-width: 940px) {
+    width: 130%;
+  }
+
+  @media (max-width: 870px) {
+    width: 140%;
+  }
+
+  @media (max-width: 800px) {
+    width: 150%;
+  }
+
+  @media (max-width: 760px) {
+    width: 160%;
+  }
+
+  @media (max-width: 760px) {
+    width: 170%;
+  }
+
+  @media (max-width: 670px) {
+    width: 180%;
+  }
+
+  @media (max-width: 630px) {
+    width: 190%;
+  }
+
+  @media (max-width: 600px) {
+    width: 200%;
+  }
+
+  @media (max-width: 570px) {
+    width: 210%;
+  }
+
+  @media (max-width: 540px) {
+    width: 230%;
+  }
+
+  @media (max-width: 490px) {
+    width: 250%;
+  }
+
+  @media (max-width: 450px) {
+    width: 270%;
+  }
+
+  @media (max-width: 420px) {
+    width: 290%;
+  }
+
+  @media (max-width: 390px) {
+    width: 310%;
+  }
+
+  @media (max-width: 370px) {
+    width: 330%;
+  }
+}
+
+.form-container {
+  width: 400px;
+  height: 400px;
+  border: 2px solid $background-border;
+  box-shadow: 0px 0px 0px 2px $background-form;
+  border-radius: 20px;
+  margin: 80px auto;
+  background-color: $background-form;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $gap-size;
+
+  @media (max-width: 420px) {
+    width: 380px;
+    height: 380px;
+  }
+
+  @media (max-width: 400px) {
+    width: 360px;
+    height: 370px;
+  }
+
+  @media (max-width: 380px) {
+    width: 340px;
+    height: 360px;
+  }
+
+  h2 {
+    width: 80%;
+    height: 10%;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .form-funtional {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-size;
+    width: 90%;
+    height: 60%;
+  }
+
+  .email,
+  .password,
+  .code-input {
+    position: relative;
+  }
+
+  input {
+    width: 98%;
+    height: 20px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid $background-border;
+
+    &:focus ~ label,
+    &:active ~ label,
+    &:not(:placeholder-shown) ~ label {
+      transform: translateY(-8px);
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  }
+
+  .no-valid {
+    border-bottom: 3px solid red;
+  }
+
+  label {
+    position: absolute;
+    left: 0;
+    top: -10px;
+    font-size: 16px;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .form-buttons,
+  .examination-buttons {
+    display: flex;
+    justify-content: flex-end;
+
+    .log-in,
+    .sign-up,
+    .input-code,
+    .send-code,
+    .goto-back,
+    .send-code-block {
+      height: 40px;
+      background-color: $background-border;
+      color: $background-form-without-alpha;
+      border: 2px solid $background-form-without-alpha;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .send-code-block {
+      background-color: $background-form;
+      color: black;
+    }
+
+    .log-in:hover,
+    .sign-up:hover,
+    .input-code:hover,
+    .send-code:hover,
+    .goto-back:hover {
+      opacity: 0.6;
+      transform: translateY(-5px);
+    }
+
+    .log-in:active,
+    .sign-up:active,
+    .input-code:active,
+    .send-code:active,
+    .goto-back:active {
+      background-color: $background-form;
+    }
+  }
+}

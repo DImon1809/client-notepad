@@ -1,0 +1,36 @@
+.container-table {
+  width: 400px;
+  margin: 40px auto;
+
+  @media (max-width: 420px) {
+    width: 380px;
+  }
+
+  @media (max-width: 390px) {
+    width: 360px;
+  }
+
+  @media (max-width: 366px) {
+    width: 340px;
+  }
+
+  @media (max-width: 346px) {
+    width: 320px;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  height: 100%;
+
+  td {
+    border: 2px solid black;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: red;
+    }
+  }
+}

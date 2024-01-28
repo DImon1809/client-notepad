@@ -1,0 +1,153 @@
+$white-color: #fff;
+$hover-color: red;
+$height-navbar: 80px;
+
+@mixin mixin-list($size, $weight) {
+  font-size: $size;
+  font-weight: $weight;
+  cursor: pointer;
+}
+
+@mixin mixin-position {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin mixin-width-height($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+.navbar {
+  width: 100%;
+  height: $height-navbar;
+  background-color: black;
+  color: $white-color;
+
+  .navigations-container {
+    margin: 0 auto;
+    @include mixin-width-height(90%, 100%);
+    @include mixin-position;
+  }
+
+  .logo-container {
+    cursor: pointer;
+  }
+
+  .menu-burger {
+    display: flex;
+    align-items: center;
+    margin-right: 10%;
+    transition: all 0.3s ease-in-out;
+
+    .burger,
+    .burger-active {
+      width: 40px;
+      height: 29px;
+      display: none;
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .burger {
+        display: block;
+      }
+
+      .burger.active {
+        display: none;
+      }
+
+      .burger-active.active {
+        display: block;
+      }
+    }
+  }
+
+  .nav-items {
+    @include mixin-width-height(24%, 100%);
+
+    @media (max-width: 1000px) {
+      @include mixin-width-height(30%, 100%);
+    }
+
+    @media (max-width: 800px) {
+      @include mixin-width-height(36%, 100%);
+    }
+
+    @media (max-width: 600px) {
+      position: fixed;
+      background-color: black;
+      right: 0;
+      top: $height-navbar;
+      z-index: 3;
+      transform: translateX(100%);
+      transition: all 0.3s ease-in-out;
+
+      &.active {
+        transform: translateX(0);
+      }
+    }
+
+    @media (max-width: 500px) {
+      @include mixin-width-height(40%, 100%);
+    }
+
+    @media (max-width: 440px) {
+      @include mixin-width-height(50%, 100%);
+    }
+
+    .list-container {
+      margin: 0;
+      padding: 0;
+      @include mixin-width-height(100%, 100%);
+      @include mixin-position;
+
+      @media (max-width: 600px) {
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-top: $height-navbar;
+        gap: $height-navbar;
+      }
+
+      .list-item {
+        list-style-type: none;
+        @include mixin-list(16px, 500);
+        transition: color 0.3s ease-in-out;
+
+        a {
+          text-decoration: none;
+          color: $white-color;
+          transition: color 0.3s ease-in-out;
+          @include mixin-list(16px, 500);
+        }
+
+        a:hover {
+          color: $hover-color;
+        }
+      }
+
+      .list-item:hover {
+        color: $hover-color;
+      }
+    }
+  }
+
+  .wrapper-container {
+    position: fixed;
+    z-index: 1;
+    top: $height-navbar;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    transition: all 0.3s ease-in-out;
+
+    &.active {
+      display: block;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+  }
+}

@@ -1,0 +1,97 @@
+$indentation-top: 40px;
+
+@mixin mixin-height-width($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin mixin-left-right-button {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  z-index: 1;
+  cursor: pointer;
+}
+
+@mixin mixin-for-animation-button($deg) {
+  opacity: 0.7;
+  transform: rotate($deg);
+}
+
+.create-list {
+  @include mixin-height-width(100%, 100%);
+
+  h1 {
+    text-align: center;
+  }
+
+  .form-list {
+    width: 400px;
+    height: 400px;
+    margin: $indentation-top auto;
+    background-color: black;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .form-list-content {
+      width: 80%;
+      margin-top: 50px;
+      position: relative;
+
+      #title {
+        @include mixin-height-width(100%, 20px);
+      }
+
+      textarea {
+        resize: none;
+        @include mixin-height-width(100%, 120px);
+      }
+
+      label {
+        color: #fff;
+        position: absolute;
+        top: -20px;
+        left: 0;
+        font-size: 16px;
+      }
+    }
+
+    .red-button {
+      margin-top: $indentation-top;
+      @include mixin-height-width(80%, 50px);
+      position: relative;
+
+      button {
+        @include mixin-height-width(100%, 100%);
+        background-color: red;
+        border: none;
+        border-radius: 40px;
+        color: #fff;
+        font-size: 14px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .red-button-left {
+        left: 0;
+        @include mixin-left-right-button;
+      }
+
+      .red-button-right {
+        right: 0;
+        @include mixin-left-right-button;
+      }
+
+      .red-button-left:hover ~ button,
+      .red-button-left:active ~ button {
+        @include mixin-for-animation-button(-4deg);
+      }
+
+      .red-button-right:hover ~ button,
+      .red-button-right:active ~ button {
+        @include mixin-for-animation-button(4deg);
+      }
+    }
+  }
+}
